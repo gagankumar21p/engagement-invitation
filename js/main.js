@@ -1,4 +1,4 @@
-// Entry point. Wires the opening screen, reveals, countdown, music, sharing and QR code together.
+// Entry point. Wires the opening screen, reveals, countdown, music and sharing.
 // Each feature is initialised independently, so one failing feature never breaks the invitation.
 
 import { INVITE, eventStartMs } from './config.js';
@@ -6,8 +6,7 @@ import { initParticles } from './particles.js';
 import { initReveal, initScrollEffects } from './reveal.js';
 import { startCountdown } from './countdown.js';
 import { initMusic } from './music.js';
-import { initShare, getInviteUrl } from './share.js';
-import { initQr } from './qr.js';
+import { initShare } from './share.js';
 import { toast } from './toast.js';
 
 const root = document.documentElement;
@@ -61,11 +60,6 @@ function init() {
     window.scrollTo(0, 0);
     if (heading) heading.focus({ preventScroll: true });
     safely('music reveal', () => music.reveal());
-    safely('qr', () => initQr({
-      figure: document.getElementById('qr'),
-      target: document.getElementById('qr-code'),
-      url: getInviteUrl(),
-    }));
   }
 
   function openInvitation() {

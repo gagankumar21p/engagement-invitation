@@ -21,7 +21,7 @@ so there is nothing to run, pay for or secure.
 * All icons and ornaments are **inline SVG** (no image requests). The only external request is the
   free Google Fonts stylesheet; if it fails, Georgia / system fonts are used and nothing breaks.
 * The text is in the HTML, so it is visible even if JavaScript fails. JavaScript only adds the opening
-  screen, animations, countdown, share/copy/calendar buttons, optional music and the QR code.
+  screen, animations, countdown, share/copy/calendar buttons and optional music.
 * Social crawlers (WhatsApp, Facebook, X) do not run JavaScript, so the Open Graph tags live in
   `index.html`. The deploy workflows write your real public URL into those tags automatically.
 
@@ -40,11 +40,8 @@ engagement-invitation/
 │   ├── particles.js            Floating gold particles (opening screen)
 │   ├── music.js                Optional play/pause music (never autoplays)
 │   ├── share.js                Share, copy details, add-to-calendar (.ics)
-│   ├── qr.js                   Local QR code (only on a real public URL)
 │   ├── toast.js                Small status messages
 │   └── vendor/
-│       ├── qrcode.js           MIT-licensed QR encoder (local, no API)
-│       └── LICENSE-qrcode.txt
 ├── assets/
 │   ├── favicon.svg
 │   ├── og-image.png            1200×630 link-preview image (placeholder: replace with your own)
@@ -67,7 +64,7 @@ python3 -m http.server 8080
 ```
 
 (or `npx serve`, or the VS Code "Live Server" extension). To test on your phone, connect it to the
-same Wi-Fi and open `http://<your-computer-ip>:8080`. The QR code stays hidden on localhost by design.
+same Wi-Fi and open `http://<your-computer-ip>:8080`.
 
 ## 4. Deploy on GitHub Pages (recommended)
 
@@ -146,7 +143,6 @@ and Facebook's "Sharing Debugger" can re-scrape a URL.
 | Signature line | `index.html` (`.closing__signoff`) and `hosts` in `js/config.js`. It currently reads "Ex-Sub Sukrampal Singh & Family"; change both places if you prefer "Khushbu & Gagan & Family" |
 | Music | Save a track you are allowed to use as `assets/music.mp3`, then set `music: Object.freeze({ enabled: true })` in `js/config.js` (see `assets/README.txt`). It is off by default, so a missing file never causes errors |
 | Preview image | `assets/og-image.png` (1200 × 630) |
-| QR code | Appears automatically on the deployed https URL. To force a specific address, set `siteUrl` in `js/config.js` |
 
 ## 8. Test on iPhone and Android
 
@@ -160,7 +156,6 @@ Do this on the deployed link, not just locally.
 - [ ] The countdown ticks every second and shows the right remaining time.
 - [ ] **Share Invitation** opens the share sheet (choose WhatsApp); the message has names, date, venue and the link.
 - [ ] **Copy Event Details** shows "copied"; pasting into a chat works.
-- [ ] The QR code appears near the bottom (public URL only) and scans to the invitation.
 - [ ] With music off (the default), there is no music button. With `music.mp3` added and `enabled: true`, the button plays and pauses, and nothing plays by itself.
 - [ ] Turn on "Reduce Motion" (iOS: Accessibility → Motion; Android: Remove animations): text still appears, motion stops.
 - [ ] Send the link to yourself on WhatsApp and check the preview card (title, description, image).
@@ -179,7 +174,6 @@ Do this on the deployed link, not just locally.
 - [x] Scroll reveals, progress bar, light parallax, reduced-motion support, text visible without JS
 - [x] Optional music button (off by default) that never autoplays and hides itself with a message if the file is missing
 - [x] Share (Web Share API, clipboard fallback), Copy Event Details, Add to Calendar (real `.ics` download)
-- [x] Local QR code generator (no API), shown only on a real public URL
 - [x] SEO, Open Graph, Twitter card, theme colour, SVG favicon, structured data
 - [x] GitHub Actions and GitLab CI deployment that write the real URL into the preview tags
 - [x] Keyboard focus styles, skip link, safe-area insets, 320 px support
@@ -196,4 +190,3 @@ Do this on the deployed link, not just locally.
 ## Credits and licences
 
 * Fonts: Cormorant Garamond and Jost via Google Fonts (SIL Open Font License, free to use).
-* QR encoder: "QRCode for JavaScript" by Kazuhiko Arase, MIT licence (see `js/vendor/LICENSE-qrcode.txt`).

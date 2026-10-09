@@ -520,7 +520,7 @@ html.js .gate {
 }
 
 /* ==========================================================================
-   E. Countdown
+   F. Countdown
    ========================================================================== */
 .countdown { background: var(--color-background-alt); }
 
@@ -576,7 +576,7 @@ html.js .gate {
 }
 
 /* ==========================================================================
-   F. Closing
+   E. Closing
    ========================================================================== */
 .closing {
   overflow: hidden;
@@ -647,25 +647,6 @@ html.js .gate {
   color: var(--color-maroon);
 }
 .share .actions { margin-top: 1.4rem; }
-
-.qr { margin: 2.4rem auto 0; }
-.qr__code {
-  width: 156px; height: 156px;
-  margin: 0 auto;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid var(--color-line);
-  border-radius: 14px;
-  box-shadow: var(--shadow-soft);
-}
-.qr__code svg { display: block; width: 100%; height: 100%; }
-.qr figcaption {
-  margin-top: 0.8rem;
-  font-size: 0.74rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-muted);
-}
 
 .footer {
   padding: 1.6rem var(--gutter) calc(5.5rem + var(--safe-bottom));

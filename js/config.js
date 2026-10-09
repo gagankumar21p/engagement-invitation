@@ -7,7 +7,7 @@ export const INVITE = Object.freeze({
 
   // Optional. Leave empty to use the address the page is opened from (recommended).
   // Set it (for example 'https://username.github.io/engagement-invitation/') only if you want
-  // Share / QR to always point to one specific URL.
+  // Share links should always point to one specific URL.
   siteUrl: '',
 
   event: Object.freeze({
