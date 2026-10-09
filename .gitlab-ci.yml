@@ -1,0 +1,20 @@
+# GitLab Pages: publishes the static site found in this repository.
+# The job must be called "pages". Enable Pages for the project (see README.md) and push to the default branch.
+
+pages:
+  stage: deploy
+  image: alpine:3.20
+  script:
+    - mkdir -p public
+    - cp -r index.html css js assets public/
+    - touch public/.nojekyll
+    # CI_PAGES_URL is the real public address GitLab gives this project.
+    - SITE_URL="${CI_PAGES_URL%/}/"
+    # Replace the placeholder URL used for the canonical link, Open Graph and Twitter tags.
+    - sed -i "s|https://YOUR-USERNAME.github.io/engagement-invitation/|${SITE_URL}|g" public/index.html
+    - echo "Public URL set to ${SITE_URL}"
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

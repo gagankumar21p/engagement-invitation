@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Gagan and Khushbu">
+  <rect width="64" height="64" rx="14" fill="#642D3B"/>
+  <path d="M18 52V28C18 20 28 17 32 9c4 8 14 11 14 19v24" fill="none" stroke="#B89A63" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M25 52V31c0-5 5-7 7-11 2 4 7 6 7 11v21" fill="none" stroke="#B89A63" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+  <circle cx="32" cy="41" r="2.6" fill="#B89A63"/>
+</svg>
